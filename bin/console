@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "shopify_graphql_client"
+require "dotenv/load"
+
+shop_name = ENV["SHOP_NAME"]
+auth_token = ENV["OAUTH_TOKEN"]
+
+if shop_name && auth_token
+  session = ShopifyAPI::Session.new(shop_name, auth_token)
+  ShopifyAPI::Base.activate_session(session)
+end
+
+require "pry"
+Pry.start

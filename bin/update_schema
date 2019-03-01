@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "shopify_graphql_client"
+require "dotenv/load"
+
+executor = ShopifyGraphQLClient::Executor.new
+filename = ShopifyGraphQLClient.send(:schema_path)
+
+session = ShopifyAPI::Session.new(
+  ENV.fetch("SHOP_NAME") + ".myshopify.com",
+  ENV.fetch("OAUTH_TOKEN"),
+)
+
+ShopifyAPI::Base.activate_session(session)
+
+result = GraphQL::Client.dump_schema(executor)
+
+result.delete("extensions")
+
+File.open(filename, "w") do |f|
+  f.write(JSON.pretty_generate(result))
+end
