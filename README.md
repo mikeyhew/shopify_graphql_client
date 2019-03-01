@@ -58,7 +58,9 @@ Note that dynamic queries are deprecated and that option will probably be remove
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-The schema file will need to be updated from time to time. To do so, run `bin/update_schema`. It requires that you have a shop with an app installed in it, and an oauth token for that shop. You can pass these in as environment variables: `SHOP_NAME=myshop OAUTH_TOKEN=... bin/update_schema`. Alternatively, you can put them in a `.env` file and it will be loaded automatically with the `dotenv` gem.
+Tests can be run with `bundle exec rspec`.
+
+The schema file will need to be updated from time to time. To do so, run `bin/update_schema`. It requires that you have a shop with an app installed in it, and an oauth token for that shop. You can pass these in as environment variables: `SHOP_DOMAIN=myshop OAUTH_TOKEN=... bin/update_schema`. Alternatively, you can put them in a `.env` file and it will be loaded automatically with the `dotenv` gem.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
