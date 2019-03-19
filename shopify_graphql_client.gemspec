@@ -39,5 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
 
   spec.add_runtime_dependency "graphql-client", "~> 0.14.0"
-  spec.add_runtime_dependency "shopify_api", "~> 5.2"
+  spec.add_runtime_dependency "shopify_api", ">= 5.2, < 7.0"
 end
