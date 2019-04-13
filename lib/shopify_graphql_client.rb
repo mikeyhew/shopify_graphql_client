@@ -5,14 +5,6 @@ require "shopify_api"
 module ShopifyGraphQLClient
   class Error < StandardError; end
 
-  def parse_query(*args)
-    ShopifyGraphQLClient.parse(*args)
-  end
-
-  def query(*args)
-    ShopifyGraphQLClient.query(*args)
-  end
-
   class << self
     delegate :parse, :query, to: :client
 
