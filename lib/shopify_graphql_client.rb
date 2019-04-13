@@ -4,12 +4,34 @@ require "shopify_api"
 
 module ShopifyGraphQLClient
   class Error < StandardError; end
+  class GraphQLError < Error; end
+  class ThrottledError < Error; end
 
   class << self
-    delegate :parse, :query, to: :client
+    delegate :parse, to: :client
 
     def client
       @client ||= GraphQL::Client.new(schema: schema, execute: Executor.new)
+    end
+
+    def query(*args)
+      result = client.query(*args)
+      errors = result.errors
+
+      if result.errors&.any?
+        messages = result.errors.messages.map do |path, messages|
+          if messages.length > 0
+            messages = messages.map{|message| "  - #{message}"}
+            "#{path}:\n" + messages.join("\n")
+          else
+            "#{path}: #{messages.first}"
+          end
+        end
+
+        raise GraphQLError, messages.join("\n")
+      end
+
+      result
     end
 
     private
