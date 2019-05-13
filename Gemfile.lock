@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    shopify_graphql_client (0.2.0)
+    shopify_graphql_client (0.2.1)
       graphql-client (~> 0.14.0)
-      shopify_api (>= 5.2, < 7.0)
+      shopify_api (>= 5.2)
 
 GEM
   remote: https://rubygems.org/
@@ -62,8 +62,8 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    shopify_api (6.0.0)
-      activeresource (>= 3.0.0)
+    shopify_api (7.0.1)
+      activeresource (>= 4.1.0, < 6.0.0)
       graphql-client
       rack
     thread_safe (0.3.6)
@@ -81,6 +81,7 @@ DEPENDENCIES
   pry-rescue (~> 1.5)
   rake (~> 10.0)
   rspec (~> 3.8)
+  shopify_api (>= 7.0.1)
   shopify_graphql_client!
 
 BUNDLED WITH
