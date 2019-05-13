@@ -8,7 +8,11 @@ shop_domain = ENV["SHOP_DOMAIN"]
 auth_token = ENV["OAUTH_TOKEN"]
 
 if shop_domain && auth_token
-  session = ShopifyAPI::Session.new(shop_domain, auth_token)
+  session = ShopifyAPI::Session.new(
+    domain: shop_domain,
+    token: auth_token,
+    api_version: "2019-04",
+  )
   ShopifyAPI::Base.activate_session(session)
 end
 

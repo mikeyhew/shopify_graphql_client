@@ -12,8 +12,9 @@ describe "client" do
     GRAPHQL
 
     session = ShopifyAPI::Session.new(
-      ENV.fetch("SHOP_DOMAIN") + ".myshopify.com",
-      ENV.fetch("OAUTH_TOKEN"),
+      domain: ENV.fetch("SHOP_DOMAIN") + ".myshopify.com",
+      token: ENV.fetch("OAUTH_TOKEN"),
+      api_version: "2019-04",
     )
 
     ShopifyAPI::Base.activate_session(session)
