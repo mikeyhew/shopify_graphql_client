@@ -3,7 +3,7 @@ require "dotenv/load"
 
 describe "client" do
   it "primary domain should be $SHOP_DOMAIN.myshopify.com" do
-    QUERY = ShopifyGraphQLClient.parse <<~GRAPHQL
+    query = ShopifyGraphQLClient.parse <<~GRAPHQL
       {
         shop {
           myshopifyDomain
@@ -19,7 +19,7 @@ describe "client" do
 
     ShopifyAPI::Base.activate_session(session)
 
-    result = ShopifyGraphQLClient.query(QUERY)
+    result = ShopifyGraphQLClient.query(query)
 
     expect(result.data.shop.myshopify_domain).to eq(ENV["SHOP_DOMAIN"] + ".myshopify.com")
   end

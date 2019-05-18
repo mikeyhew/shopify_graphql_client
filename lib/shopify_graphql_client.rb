@@ -11,7 +11,9 @@ module ShopifyGraphQLClient
     delegate :parse, to: :client
 
     def client
-      @client ||= GraphQL::Client.new(schema: schema, execute: Executor.new)
+      @client ||= GraphQL::Client.new(schema: schema, execute: Executor.new).tap do |client|
+        client.allow_dynamic_queries = true
+      end
     end
 
     def query(*args)
