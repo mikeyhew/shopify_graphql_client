@@ -21,7 +21,7 @@ describe "client" do
     GRAPHQL
 
     with_session do
-      result = ShopifyGraphQLClient.query(query)
+      result = ShopifyGraphQLClient.exec(query)
       expect(result.data.shop.myshopify_domain).to eq(ENV["SHOP_DOMAIN"] + ".myshopify.com")
     end
   end

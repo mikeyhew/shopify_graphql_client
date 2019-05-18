@@ -7,6 +7,8 @@ module ShopifyGraphQLClient
   class GraphQLError < Error; end
   class ThrottledError < Error; end
 
+  require "shopify_graphql_client/query_builder"
+
   class << self
     def parse(str, filename=nil, lineno=nil)
       if filename.nil? && lineno.nil?
@@ -24,7 +26,17 @@ module ShopifyGraphQLClient
       end
     end
 
-    def query(*args)
+    # `query = ShopifyGraphQLClient.query(some_var: :Int!) do ... end`
+    def query(**args, &blk)
+      builder = QueryBuilder.new(&blk)
+      # TODO call builder.build or something
+    end
+
+    def fragment(on_type, **args, &blk)
+      builder = QueryBuilder.new(&blk)
+    end
+
+    def exec(*args)
       result = client.query(*args)
       errors = result.errors
 
