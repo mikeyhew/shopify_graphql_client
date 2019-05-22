@@ -8,7 +8,15 @@ module ShopifyGraphQLClient
   class ThrottledError < Error; end
 
   class << self
-    delegate :parse, to: :client
+    def parse(str, filename=nil, lineno=nil)
+      if filename.nil? && lineno.nil?
+        location = caller_locations(1, 1).first
+        filename = location.path
+        lineno = location.lineno
+      end
+
+      client.parse(str, filename=filename, lineno=lineno)
+    end
 
     def client
       @client ||= GraphQL::Client.new(schema: schema, execute: Executor.new).tap do |client|
