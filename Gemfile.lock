@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    shopify_graphql_client (0.2.2)
+    shopify_graphql_client (0.2.3)
       graphql-client (~> 0.14.0)
       shopify_api (>= 5.2)
 
