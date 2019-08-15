@@ -7,16 +7,12 @@ An alternative client for Shopify's GraphQL Admin API. Loads the schema from a f
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'shopify_graphql_client'
+gem 'shopify_graphql_client', github: 'mikeyhew/shopify_graphql_client'
 ```
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install shopify_graphql_client
 
 ## Usage
 
