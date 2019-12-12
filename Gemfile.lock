@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     shopify_graphql_client (0.2.3)
-      graphql-client (~> 0.14.0)
+      graphql-client (>= 0.14.0)
       shopify_api (>= 5.2)
 
 GEM
@@ -85,4 +85,4 @@ DEPENDENCIES
   shopify_graphql_client!
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
