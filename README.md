@@ -1,3 +1,5 @@
+**Note: this project is unmaintained as of January 2020. You are welcome to fork it and use it as you see fit**
+
 # ShopifyGraphQLClient
 
 An alternative client for Shopify's GraphQL Admin API. Loads the schema from a file instead of dowloading it at runtime, so that you can parse queries before you have a shop session and assign them to a constant; and uses `ShopifyAPI::Base.site` when creating the endpoint's URI so that you don't have to create a new client for every shop.
