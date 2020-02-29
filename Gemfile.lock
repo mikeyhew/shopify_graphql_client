@@ -48,7 +48,7 @@ GEM
       interception (>= 0.5)
       pry (>= 0.12.0)
     rack (2.0.8)
-    rake (10.5.0)
+    rake (13.0.1)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -79,7 +79,7 @@ DEPENDENCIES
   pry
   pry-byebug (~> 3.7)
   pry-rescue (~> 1.5)
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec (~> 3.8)
   shopify_api (>= 7.0.1)
   shopify_graphql_client!
