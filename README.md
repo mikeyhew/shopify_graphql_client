@@ -21,8 +21,13 @@ And then execute:
 ```ruby
 QUERY = ShopifyGraphQLClient.parse <<~GRAPHQL
   {
-    shop {
+   shop {
       name
+      primaryDomain {
+        url
+        host
+      }
+      myshopifyDomain
     }
   }
 GRAPHQL
